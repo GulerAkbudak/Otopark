@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Tarifeler";
+}
+
+<div class="row mb-2">
+    <div class="col-md-6">
+        <h3>@ViewBag.Title</h3>
+    </div>
+    <div class="col-md-6">
+        <button id="btnNew" class="btn btn-primary float-end"><i class="k-icon k-i-plus"></i> Yeni</button>
+    </div>
+</div>
+
+<div id="grid"></div>
+
+<div id="tariffModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="tariffModalTitle" class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label  class="form-label">Başlangıç Saati</label>
+                            <input id="txtStartHour" class="form-control" />
+                            <label for="txtEndHour" class="form-label">Bitiş Saati</label>
+                            <input id="txtEndHour" class="form-control" />
+                            <label for="txtAmount" class="form-label">Ücreti</label>
+                            <input id="txtAmount" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <button type="button" id="btnSave" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/pages/tariff.js"></script>
+}
