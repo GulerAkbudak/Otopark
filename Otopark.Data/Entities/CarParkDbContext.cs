@@ -17,6 +17,8 @@ namespace Otopark.Data.Entities
         public DbSet<CarParkingSpace> CarParkingSpaces { get; set; }
         public DbSet<Sell> Sells { get; set; }
         public DbSet<Tariff> Tariffs { get; set; }
+        public DbSet<User> Users { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

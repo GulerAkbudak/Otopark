@@ -1,6 +1,7 @@
 ﻿using Otopark.Data.Entities;
 using Otopark.Data.Models;
 using Otopark.Service;
+using Otopark.Web.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace Otopark.Web.Controllers
 {
+    [OtoparkAuthorize]
     public class TariffController : Controller
     {
         private readonly TariffService tariffService;

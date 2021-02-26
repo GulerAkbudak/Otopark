@@ -41,6 +41,7 @@
         $("#serieModal").modal("show");
         $("#serieModalTitle").text("Seri Düzenle");
         id = dataItem.Id;
+        $("#cmbBrandName").data("kendoDropDownList").value(dataItem.BrandId);
         $("#txtSerieName").val(dataItem.SerieName);
     }
 

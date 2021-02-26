@@ -24,6 +24,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="@Url.Action("Index","Customer")">Müşteriler</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index","ParkingSpaces")">Park Yerleri</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Tanımlar
@@ -32,9 +35,10 @@
                                     <li><a class="dropdown-item" href="@Url.Action("Index","Brand")">Markalar</a></li>
                                     <li><a class="dropdown-item" href="@Url.Action("Index","Serie")">Seriler</a></li>
                                     <li><a class="dropdown-item" href="@Url.Action("Index","Tariff")">Tarifeler</a></li>
-
+                                    <li><a class="dropdown-item" href="@Url.Action("Crud","ParkingSpaces")">Park Alanları</a></li>
                                 </ul>
                             </li>
+                            
                         </ul>
                         <div class="d-flex">
                             <ul class="navbar-nav">
@@ -44,8 +48,8 @@
                                         Admin
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownRight">
-                                        <li><a class="dropdown-item" href="#">Hesabım</a></li>
-                                        <li><a class="dropdown-item" href="#">Çıkış</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("MyAccountEdit","User")">Hesabım</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Exit","User")">Çıkış</a></li>
                                     </ul>
                                 </li>
                             </ul>

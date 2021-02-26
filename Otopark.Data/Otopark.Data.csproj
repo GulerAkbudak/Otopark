@@ -56,15 +56,21 @@
   <ItemGroup>
     <Compile Include="Entities\Brand.cs" />
     <Compile Include="Entities\CarParkDbContext.cs" />
+    <Compile Include="Enum\Gender.cs" />
+    <Compile Include="Helper\CryptHelper.cs" />
     <Compile Include="Entities\CarParkingSpace.cs" />
     <Compile Include="Entities\Customers.cs" />
     <Compile Include="Entities\Sell.cs" />
     <Compile Include="Entities\Serie.cs" />
     <Compile Include="Entities\Tariff.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Models\ChangeStatusModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\SellModel.cs" />
     <Compile Include="Models\SerieModel.cs" />
     <Compile Include="Models\ServiceResult.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\UserProfileModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

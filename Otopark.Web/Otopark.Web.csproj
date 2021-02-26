@@ -148,11 +148,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Attributes\OtoparkAuthorize.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ParkingSpacesController.cs" />
+    <Compile Include="Controllers\SellController.cs" />
     <Compile Include="Controllers\SerieController.cs" />
     <Compile Include="Controllers\TariffController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,8 +183,10 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\pages\brand.js" />
     <Content Include="Scripts\pages\customer.js" />
+    <Content Include="Scripts\pages\parkingSpace.js" />
     <Content Include="Scripts\pages\serie.js" />
     <Content Include="Scripts\pages\tariff.js" />
+    <Content Include="Scripts\pages\user.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -199,10 +205,17 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Serie\Index.cshtml" />
     <Content Include="Views\Tariff\Index.cshtml" />
+    <Content Include="Views\ParkingSpaces\Index.cshtml" />
+    <Content Include="Views\ParkingSpaces\Crud.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\ForgotPassword.cshtml" />
+    <Content Include="Views\User\MyAccountEdit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Sell\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

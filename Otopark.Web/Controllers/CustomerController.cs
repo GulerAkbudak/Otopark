@@ -1,6 +1,7 @@
 ﻿using Otopark.Data.Entities;
 using Otopark.Data.Models;
 using Otopark.Service;
+using Otopark.Web.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Web.Mvc;
 
 namespace Otopark.Web.Controllers
 {
-
+    [OtoparkAuthorize]
     public class CustomerController : Controller
     {
         private readonly ICustomerService customerService;
@@ -30,6 +31,15 @@ namespace Otopark.Web.Controllers
         {
             var list = customerService.Get();
             return Json(list, JsonRequestBehavior.AllowGet);
+
+        }
+        [HttpGet]
+        [Route("GetEmptyPark")]
+        public ActionResult GetEmptyPark()
+        {
+            var data = customerService.GetEmptyPark();
+            return Json(data, JsonRequestBehavior.AllowGet);
+
         }
 
         [HttpGet]
@@ -53,7 +63,7 @@ namespace Otopark.Web.Controllers
             {
                 result = customerService.Put(model);
             }
-        
+
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 

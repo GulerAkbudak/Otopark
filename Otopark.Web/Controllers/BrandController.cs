@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Otopark.Data.Entities;
 using Otopark.Service;
+using Otopark.Web.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,9 @@ using System.Web.Mvc;
 
 namespace Otopark.Web.Controllers
 {
+    [OtoparkAuthorize]
     public class BrandController : Controller
     {
-
-
         private readonly IBrandService brandService;
         public BrandController(IBrandService brandService)
         {

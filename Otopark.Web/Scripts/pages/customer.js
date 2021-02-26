@@ -2,27 +2,34 @@
 
 $(function () {
     var id = 0;
-    var serieDataSource;
 
     $("#btnNew").click(function () {
         $("#customerModal").modal("show");
         $("#customerModalTitle").text("Yeni Müşteri");
         id = 0;
-        $("#txtStartHour").val('');
-        $("#txtEndHour").val('');
-        $("#txtAmount").val('');
-
+        $("#txtNameSurname").val('');
+        $("#txtPlaque").val('');
+        $("#txtTelephone").val('');
+        $("#txtColor").val('');
+        $("#txtComment").val('');
+        $("#txtYear").val('');
+        $("#cmbBrandName").data("kendoDropDownList").value('');
+        $("#cmbSerieName").data("kendoDropDownList").value('');
     });
 
 
     $("#btnSave").click(function () {
         var data = {
             Id: id,
-            StartHour: parseInt($("#txtStartHour").val()),
-            EndHour: parseInt($("#txtEndHour").val()),
-            Amount: parseFloat($("#txtAmount").val())
+            NameSurname: $("#txtNameSurname").val(),
+            Plaque: $("#txtPlaque").val(),
+            Telephone: $("#txtTelephone").val(),
+            Color: $("#txtColor").val(),
+            Comment: $("#txtComment").val(),
+            Year: $("#txtYear").val(),
+            BrandId: parseInt($("#cmbBrandName").val()),
+            SerieId: parseInt($("#cmbSerieName").val())
         };
-        console.log(data);
         $.post("/Customer/CreateOrUpdate", data, (res) => {
             $("#customerModal").modal("hide");
             dataSource.read();
@@ -35,6 +42,14 @@ $(function () {
         $("#customerModal").modal("show");
         $("#customerModalTitle").text("Müşteri Düzenle");
         id = dataItem.Id;
+        $("#txtNameSurname").val(dataItem.NameSurname);
+        $("#txtPlaque").val(dataItem.Plaque);
+        $("#txtTelephone").val(dataItem.Telephone);
+        $("#txtColor").val(dataItem.Color);
+        $("#txtComment").val(dataItem.Comment);
+        $("#txtYear").val(dataItem.Year);
+        $("#cmbBrandName").data("kendoDropDownList").value(dataItem.BrandId);
+        onBrandChange(dataItem.SerieId);
     }
 
     function remove(e) {
@@ -60,6 +75,10 @@ $(function () {
     $("#cmbBrandName").kendoDropDownList({
         dataTextField: "BrandName",
         dataValueField: "Id",
+        optionLabel: {
+            BrandName: "Marka Seçiniz",
+            Id: ""
+        },
         dataSource: {
             transport: {
                 read: {
@@ -71,28 +90,32 @@ $(function () {
         change: onBrandChange
     });
 
-    var cmbBrandName = $("#cmbBrandName").data("kendoDropDownList");
+    $("#cmbBrandName").data("kendoDropDownList");
 
-    function onBrandChange() {
+    function onBrandChange(e) {
         var brandId = $("#cmbBrandName").val();
-        var cmbSerieName = $("#cmbSerieName").data("kendoDropDownList");
-
-        serieDataSource = new kendo.data.DataSource({
+        var serieDataSource = new kendo.data.DataSource({
             transport: {
-                transport: {
-                    read: {
-                        url: "/Serie/GetByBrandId/" + brandId,
-                        dataType: "json"
-                    }
+                read: {
+                    url: "/Serie/GetByBrandId/" + brandId,
+                    dataType: "json"
                 }
             }
         });
+        var cmbSerieName = $("#cmbSerieName").data("kendoDropDownList");
+        cmbSerieName.setDataSource(serieDataSource);
+        if (e) {
+            cmbSerieName.value(e);
+        }
     }
 
     $("#cmbSerieName").kendoDropDownList({
         dataTextField: "SerieName",
         dataValueField: "Id",
-        dataSource: serieDataSource
+        optionLabel: {
+            SerieName: "Seri Seçiniz",
+            Id: ""
+        }
     });
 
     $("#grid").kendoGrid({

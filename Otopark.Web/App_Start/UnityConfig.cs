@@ -16,6 +16,9 @@ namespace Otopark.Web
             container.RegisterType<ITariffService, TariffService>();
             container.RegisterType<ICustomerService, CustomerService>();
             container.RegisterType<ISellService, SellService>();
+            container.RegisterType<ICarParkingSpaceService, CarParkingSpaceService>();
+            container.RegisterType<IUserService , UserService>();
+
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

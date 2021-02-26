@@ -15,9 +15,8 @@ namespace Otopark.Service
         Customer Get(int id);
         ServiceResult Post(Customer customer);
         ServiceResult Put(Customer customer);
-
         ServiceResult Delete(int id);
-
+        List<Customer> GetEmptyPark();
     }
     public class CustomerService : ICustomerService
     {
@@ -45,7 +44,9 @@ namespace Otopark.Service
                            Comment = x.Comment,
                            EntryDate = x.EntryDate,
                            Telephone = x.Telephone,
-                           Year = x.Year
+                           Year = x.Year,
+                           BrandId = x.BrandId,
+                           SerieId = x.SerieId
                        }).ToList();
             return list;
         }
@@ -74,7 +75,6 @@ namespace Otopark.Service
             }
             return result;
         }
-
 
         public ServiceResult Post(Customer model)
         {
@@ -126,6 +126,12 @@ namespace Otopark.Service
                 result.IsSuccess = true;
             }
             return result;
+        }
+
+        public List<Customer> GetEmptyPark()
+        {
+            var customers = context.Customers.Where(x => x.CarParkingSpaceId == null).ToList();
+            return customers;
         }
     }
 }

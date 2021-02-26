@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Park Yerleri";
+}
+
+<div class="row mb-2">
+    <div class="col-md-6">
+        <h3>@ViewBag.Title</h3>
+    </div>
+</div>
+
+<div class="row" id="carParkingSpaces"></div>
+
+
+@* Müşteriyi Park Yerine Ekleme Modalı *@
+<div id="parkModal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="parkModalTitle" class="modal-title">Araç Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div id="errorMessage" class="alert alert-danger" role="alert">
+                            A simple danger alert—check it out!
+                        </div>
+                        <div id="customerGrid"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*Ödeme Yapma Modeli*@
+<div id="payModal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ödeme Yap</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Plaka</label>
+                            <input id="txtPlaque" class="form-control" type="text" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Adı Soyadı</label>
+                            <input id="txtNameSurname" class="form-control" type="text" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Telefon</label>
+                            <input id="txtTelephone" class="form-control" type="text" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Park Yeri</label>
+                            <input id="txtParkingSpaces" class="form-control" type="text" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Marka</label>
+                            <input id="txtBrandName" class="form-control" type="text" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label class="form-label">Seri</label>
+                            <input id="txtSerieName" class="form-control" type="text" disabled readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">Giriş Tarihi</label>
+                            <input id="txtEntryDate" class="form-control bg-warning text-white" type="text" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">Çıkış Tarihi</label>
+                            <input id="txtExitDate" class="form-control bg-warning text-white" type="text" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">Süre</label>
+                            <input id="txtHour" class="form-control bg-warning text-white" type="text" disabled readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label class="form-label">Ücret</label>
+                            <input id="txtAmount" class="form-control bg-warning text-white" type="text" disabled readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnPay" type="button" class="btn btn-danger">Ödeme Yap</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/Scripts/pages/parkingSpace.js"></script>
+}
